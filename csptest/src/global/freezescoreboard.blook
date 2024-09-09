@@ -1,0 +1,40 @@
+console.log(
+    "%cScript: freezescoreboard.blook\n\n%cCreated by Ducklife3141!\n%cJoin the discord server: https://discord.gg/Sta64r9hYp",
+    "color:#0bc2cf;font-size:125%;font-weight:bold;",
+    "font-size:150%;color:red;",
+    "font-size:120%;color:#a000ff;"
+);
+var snode = Object.values(window.document.querySelector('#app>div>div'))[1].children[0]._owner.stateNode;
+
+function crash() {
+    snode.props.liveGameController.setVal({
+        path: "c/" + snode.props.client.name + "/tat/t",
+        val: "scoreboard frozen by autoupdate cheats"
+    });
+    snode.props.liveGameController.setVal({
+        path: "c/" + snode.props.client.name + "/f/t",
+        val: "scoreboard frozen by autoupdate cheats"
+    });
+}
+if (snode.props.liveGameController._liveApp) {
+
+    if (window.fsint) {
+        window.clearInterval(window.fsint);
+        snode.props.liveGameController.setVal({
+            path: "c/" + snode.props.client.name + "/tat",
+            val: ""
+        });
+        snode.props.liveGameController.setVal({
+            path: "c/" + snode.props.client.name + "/f",
+            val: "Old Boot"
+        });
+        alert("Freeze scorebord disabled!");
+        window.fsint = !true;
+    } else {
+        window.fsint = window.setInterval(crash, 25);
+        alert("Freeze Scoreboard enabled! (run again to toggle)");
+    }
+
+} else {
+    alert("You must be in a game to use this cheat!");
+}

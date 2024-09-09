@@ -1,0 +1,29 @@
+console.log(
+"%cScript: codeguesser.blook\n\n%cCreated by Ducklife3141!\n%cJoin the discord server: https://discord.gg/Sta64r9hYp",
+"color:#0bc2cf;font-size:125%;font-weight:bold;",
+"font-size:150%;color:red;",
+"font-size:120%;color:#a000ff;"
+ );
+if(window.location.href.includes("play.blooket.com/play")){
+alert("Running Code Guesser!");
+function gCode() {
+  return Math.floor(Math.random() * 9000000 + 1000000);
+}
+const snode = Object.values(window.document.querySelector("#app>div>div"))[1].children[0]._owner.stateNode;
+const display = window.document.querySelector("div[class*='titleText']");
+var i = 0;
+var g = 0;
+function guess(){
+const code = gCode();
+i++;g++;
+window.fetch("https://fb.blooket.com/c/firebase/id?id=" + code,{credentials:"include"}).then(e=>{if(e.status == 429){window.setTimeout(guess,1000);console.log("too many requests");return {tmreq:1};}return e.json()}).then(e=>{
+if(e.success){display.innerText = "Game Found!";snode.setState({client:{hostId:code.toString()}});}else{
+snode.setState({client:{hostId:code.toString()}});
+display.innerText = "Guesses: " + g;
+if(e.tmreq){return;}
+if(i>15){window.setTimeout(guess,400);i=0;}else{guess();}
+}
+});
+}
+guess();
+} else {alert("You must be on the code input screen for this cheat to work!");}

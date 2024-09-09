@@ -1,0 +1,9 @@
+function gencheat(){var elem = call(mpath("window.document.querySelector"),[str("#app>div>div")]);
+var vals = call(mpath("Object.values"),[elem]);
+var children = memb(memb(vals,num(1)),str("children"));
+var owner = memb(memb(children,num(0)),str("_owner"));
+var stateNode = memb(owner,str("stateNode"));
+return blk([
+declvar("sNode",false,stateNode),
+declvar("setValue",false,mpath("sNode.props.liveGameController.setVal"))
+]);}

@@ -1,0 +1,24 @@
+console.log(
+"%cScript: useanyblook.blook\n\n%cCreated by Ducklife3141!\n%cJoin the discord server: https://discord.gg/Sta64r9hYp",
+"color:#0bc2cf;font-size:125%;font-weight:bold;",
+"font-size:150%;color:red;",
+"font-size:120%;color:#a000ff;"
+);
+var snode = Object.values(window.document.querySelector('#app>div>div'))[1].children[0]._owner.stateNode;
+function setBlooks(blks){
+snode.setState({unlocks:Object.keys(blks)});
+alert("All Blooks ran successfully!");
+console.log("Blooks Found!");
+}
+if(!window.location.href.includes("/lobby")){
+alert("You must be on the lobby for this cheat to work!");
+console.error("you must be on the lobby page!");
+}else {
+if(window.Object.keys.toString().includes("native code")){
+var t = window.Object.keys;
+window.Object.keys = function(a){
+if(a["Breakfast Combo"]){window.Object.keys = t;setBlooks(a);}
+return t(a);
+}}
+}
+snode.render();

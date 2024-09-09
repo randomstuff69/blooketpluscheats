@@ -1,0 +1,10 @@
+console.log(
+    "%cScript: removerandname.blook\n\n%cCreated by Ducklife3141!\n%cJoin the discord server: https://discord.gg/Sta64r9hYp",
+    "color:#0bc2cf;font-size:125%;font-weight:bold;",
+    "font-size:150%;color:red;",
+    "font-size:120%;color:#a000ff;"
+);
+if(window.location.href.includes("/register")){
+Object.values(window.document.querySelector('#app>div>div'))[1].children[0]._owner.stateNode.setState({isRandom:0});
+alert("Random Name Removed!");
+} else {alert("You must be on the name input screen for this cheat to work!");}
