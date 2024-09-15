@@ -1080,6 +1080,11 @@
                 type: "input",
             }],
             run: function(e) {
+			let i = document.createElement('iframe');
+            document.body.append(i);
+            const alert = i.contentWindow.alert.bind(window);
+            i.remove();
+			if(!e.startsWith("http")){alert("URL must be http or https!");return;}
                 let t = Object.values(function e(t = document.querySelector("body>div")) {
                     return Object.values(t)[1]?.children?.[0]?._owner.stateNode ? t : e(t.querySelector(":scope>div"));
                 }())[1].children[0]._owner.stateNode;
