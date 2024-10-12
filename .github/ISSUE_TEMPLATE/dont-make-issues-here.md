@@ -1,0 +1,10 @@
+---
+name: DONT MAKE ISSUES HERE
+about: DONT MAKE ISSUES HERE GO TO THE DISCORD
+title: DONT MAKE ISSUES HERE
+labels: ''
+assignees: ''
+
+---
+
+DONT MAKE ISSUES HERE
